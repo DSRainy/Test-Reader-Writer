@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class TestReaderWriter {
 
     public static void main(String[] args) {
-        File fileInput , fileOutput;
+        File fileInput, fileOutput;
         FileInputStream fileInputStream = null;
         FileOutputStream fileOutputStream = null;
         InputStreamReader isr = null;
@@ -40,43 +40,22 @@ public class TestReaderWriter {
             isr = new InputStreamReader(fileInputStream, "UTF-8");
             inputFile = new BufferedReader(isr);
 
-//            FileReader fileReader = new FileReader(fileInput);
             fileOutput = new File("D:\\test\\outputwriter.txt");
             fileOutputStream = new FileOutputStream(fileOutput);
             osw = new OutputStreamWriter(fileOutputStream, "UTF-8");
             outputFile = new BufferedWriter(osw);
-//            String line = "";
+
             int c = 0;
             while ((c = inputFile.read()) != -1) {
                 outputFile.write((char) c);
                 System.out.print((char) c);
             }
-//            List<Character> charList = new LinkedList<>();
-//            while ((c = inputFile.read()) != -1) {
-//                charList.add((char)c);
-//                System.out.print((char) c);
-//            }
 
-//            for(Character ch : charList){
-//                System.out.print(ch);
-//            }
-//            Iterable x = charList;
-//            
-//            char[] cbuff = charList
-//            System.out.println("\n\noooooooooooooooooooooooooooooooooooooooooooooo\n");
-//            c = 0;
-//            while (line != null) {
-//
-////                System.out.println(line);
-////                outputFile.write(line);
-//                line = inputFile.readLine();
-//            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TestReaderWriter.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(TestReaderWriter.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally{
+        } finally {
             try {
                 inputFile.close();
                 outputFile.close();
@@ -87,8 +66,7 @@ public class TestReaderWriter {
             } catch (IOException ex) {
                 Logger.getLogger(TestReaderWriter.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
+
         }
     }
 }
